@@ -4,20 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>HomeWork12</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
-
-    <section>
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
-
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
+    <form class="img-form" autocomplete="on">
+      <label>
+        <input
+          class="img-inp"
+          type="text"
+          name="query"
+          placeholder="Search images..."
+        />
+      </label>
+      <button class="img-btn" type="submit">Search</button>
+    </form>
+    <div class="lod-div">
+      <span class="loader"></span>
+    </div>
+    <ul class="gallery"></ul>
 
     <script type="module" src="./main.js"></script>
   </body>
