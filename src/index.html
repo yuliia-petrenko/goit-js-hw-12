@@ -29,7 +29,17 @@
       <span class="loader"></span>
     </div>
     <ul class="gallery"></ul>
+    <button type="button" class="button is-hidden" data-action="load-more">
+      <span
+        class="spinner is-hidden"
+        id="preloader"
+        role="status"
+        aria-hidden="true"
+      ></span>
 
+      <span class="label">Load more</span>
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

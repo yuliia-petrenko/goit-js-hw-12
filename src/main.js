@@ -4,6 +4,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+import axios from 'axios';
+
 const searchForm = document.querySelector('.img-form');
 const inputForm = document.querySelector('.img-inp');
 const btnForm = document.querySelector('.img-btn');
@@ -13,6 +15,12 @@ const galleryForm = document.querySelector('.gallery');
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '41930626-f2ac102ea6260ef01eb19ab27';
 
+const queryParams = {
+  query: '',
+  page: 1,
+  maxPage: 0,
+  pageSize: 40,
+};
 searchForm.addEventListener('submit', event => {
   event.preventDefault();
   const query = inputForm.value.trim();

@@ -23,3 +23,143 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  border-radius: 15px;
+}
+img {
+  display: block;
+}
+.img-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.img-inp {
+  width: 240px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid #808080;
+  outline: none;
+  padding: 10px 18px;
+}
+
+.img-inp:hover {
+  border: 1px solid #000;
+}
+
+.img-inp:focus {
+  border: 1px solid #4e75ff;
+}
+
+.img-btn {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  width: 90px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #4e75ff;
+  border: none;
+  padding: 0;
+}
+
+.img-btn:hover,
+.img-btn:focus {
+  background-color: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 48px;
+  user-select: none;
+  list-style: none;
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 1128px;
+}
+.gallery-item {
+  flex-basis: calc((100% - 48px) / 3);
+}
+.gallery-image {
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item {
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  width: 360px;
+}
+
+.error-svg {
+  background-image: url(../img/error.svg);
+}
+
+.lod-div {
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #4e75ff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  box-sizing: border-box;
+  animation: rotation 10s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  width: 125px;
+  line-height: 1.5;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #4e75ff;
+  border: none;
+  padding: 0;
+}
+
+.button:disabled {
+  background-color: #8e8989;
+}
+
+.button.is-hidden {
+  display: none;
+}
+
+.button > .spinner.is-hidden {
+  display: none;
+}
+
+/* Article List */
