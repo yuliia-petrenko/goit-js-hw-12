@@ -87,11 +87,11 @@ img {
   margin: 0 auto;
   max-width: 1128px;
 }
-.gallery-item {
+/* .gallery-item {
   flex-basis: calc((100% - 48px) / 3);
-}
+} */
 .gallery-image {
-  width: 360px;
+  width: 250px;
   height: 200px;
   overflow: hidden;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -100,7 +100,7 @@ img {
 .gallery-item {
   font-size: 15px;
   letter-spacing: 0.02em;
-  width: 360px;
+  width: 250px;
 }
 
 .error-svg {
@@ -133,7 +133,7 @@ img {
     transform: rotate(360deg);
   }
 }
-.button {
+.load-btn {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -149,17 +149,14 @@ img {
   border: none;
   padding: 0;
 }
-
-.button:disabled {
+.load-btn:hover,
+.load-btn:focus {
+  background-color: #6c8cff;
+}
+.load-btn:disabled {
   background-color: #8e8989;
 }
 
-.button.is-hidden {
+.load-btn.is-hidden {
   display: none;
 }
-
-.button > .spinner.is-hidden {
-  display: none;
-}
-
-/* Article List */
