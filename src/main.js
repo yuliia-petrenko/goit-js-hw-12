@@ -22,9 +22,9 @@ const simplyGallery = new SimpleLightbox('.gallery-item a', {
   captionDelay: 250,
 });
 const hiddenClass = 'is-hidden';
-let page = 1;
-let query = '';
-let maxPage = 0;
+const page = 1;
+const query = '';
+const maxPage = 0;
 
 refs.form.addEventListener('submit', searchForm);
 
