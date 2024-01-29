@@ -59,10 +59,10 @@ async function searchForm(event) {
         `Sorry, there are no images matching your search query. Please, try again!`
       );
     }
-    showLoader(false);
   } catch (error) {
-    console.log(error);
+    createMessage(`We're sorry, but you've reached the end of search results.`);
   } finally {
+    showLoader(false);
     refs.form.reset();
     if (page === maxPage) {
       refs.loadMoreBtn.classList.add(hiddenClass);
@@ -91,12 +91,12 @@ async function onLoadMore() {
     refs.loadMoreBtn.classList.add(hiddenClass);
     const { hits } = await fetchImages(query, page);
     createMarkup(hits);
-    showLoader(false);
     simplyGallery.refresh();
-    refs.loadMoreBtn.classList.remove(hiddenClass);
+    refs.loadMoreBtn.classList.remove1(hiddenClass);
   } catch (error) {
-    console.log(error);
+    createMessage(`We're sorry, but you've reached the end of search results.`);
   } finally {
+    showLoader(false);
     if (page === maxPage) {
       refs.loadMoreBtn.classList.add(hiddenClass);
     }
