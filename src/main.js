@@ -44,7 +44,7 @@ async function searchForm(event) {
     return;
   }
   try {
-    const data = await fetchImages(query);
+    const data = await fetchImages(query, page);
 
     maxPage = Math.ceil(data.totalHits / 40);
 
@@ -70,20 +70,6 @@ async function searchForm(event) {
   }
 }
 
-function createMessage(message) {
-  iziToast.show({
-    class: 'error-svg',
-    position: 'topRight',
-    icon: 'error-svg',
-    message: message,
-    maxWidth: '432',
-    messageColor: '#fff',
-    messageSize: '16px',
-    backgroundColor: '#EF4040',
-    close: false,
-    closeOnClick: true,
-  });
-}
 async function onLoadMore() {
   page += 1;
   try {
@@ -92,7 +78,7 @@ async function onLoadMore() {
     const { hits } = await fetchImages(query, page);
     createMarkup(hits);
     simplyGallery.refresh();
-    refs.loadMoreBtn.classList.remove1(hiddenClass);
+    refs.loadMoreBtn.classList.remove(hiddenClass);
   } catch (error) {
     createMessage(`We're sorry, but you've reached the end of search results.`);
   } finally {
@@ -130,18 +116,32 @@ function createMarkup(hits) {
         downloads,
       }) =>
         `
-       <li class="gallery-item">
-  <a class="gallery-link" href="${largeImageURL}">
-    <img class="gallery-image" src="${webformatURL}" alt="${tags}" />
-    <p class="gallery-item">Likes: ${likes} Views: ${views} Comments: ${comments} Downloads: ${downloads}</p>
-  </a>
-</li>`
+        <li class="gallery-item">
+        <a class="gallery-link" href="${largeImageURL}">
+        <img class="gallery-image" src="${webformatURL}" alt="${tags}" />
+        <p class="gallery-item">Likes: ${likes} Views: ${views} Comments: ${comments} Downloads: ${downloads}</p>
+        </a>
+        </li>`
     )
     .join('');
   refs.galleryForm.insertAdjacentHTML('beforeend', markup);
   simplyGallery.refresh();
 }
 
+function createMessage(message) {
+  iziToast.show({
+    class: 'error-svg',
+    position: 'topRight',
+    icon: 'error-svg',
+    message: message,
+    maxWidth: '432',
+    messageColor: '#fff',
+    messageSize: '16px',
+    backgroundColor: '#EF4040',
+    close: false,
+    closeOnClick: true,
+  });
+}
 function showLoader(state = true) {
   refs.loaderForm.style.display = !state ? 'none' : 'inline-block';
   refs.btnForm.disabled = state;
